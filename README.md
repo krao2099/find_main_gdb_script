@@ -1,2 +1,7 @@
-# find_main_gdb_script
-Find the main function in a x86 binary whether stripped or not
+set breakpoint pending on
+tbreak __libc_start_main
+r
+break *$rdi
+c
+x/10i $rip
+
